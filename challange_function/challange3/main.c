@@ -1,17 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 // function pour vérifier si un nombre il est premier ou non
 bool isPremier(int num){
 	bool test=true ;
 	int i ;
-	if(num<=2)
+	
+/*	if(num<2)
 	{
-    	test= true 	;
+    	test= false 	;
 	} 
 	else
 	{
-		for (i=3 ; i < num ;i++)
+		for (i=2 ; i < num ;i++)
 		{
 	    	if(num%2 == 0)
 			{
@@ -22,7 +24,28 @@ bool isPremier(int num){
 			test = true ;
 			}
 		}
+	}*/
+	
+	if (num<=1){
+		test= false 	;
 	}
+	else
+	{
+	    
+	  for (i=2;i<=sqrt(num); i++)            
+	  {
+	  	if(num%i != 0)
+		  {
+		  	test = true ;
+		  }
+		  else 
+		  {
+		  	test= false ;
+		  }
+	  }
+
+
+	} 
 	
 	return test ;
 }
